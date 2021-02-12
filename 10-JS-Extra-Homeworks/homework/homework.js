@@ -10,6 +10,11 @@ function deObjetoAmatriz(objeto){
       C: 3
     }) ➞ [["D", 1], ["B", 2], ["C", 3]]*/
   //Escribe tu código aquí
+  var array = [];
+  for (let key in objeto) {
+    array.push([key, objeto[key]]);
+  }
+  return array;
 }
 
 
@@ -18,6 +23,14 @@ function numberOfCharacters(string) {
   //en formato par clave-valor.
   //Ej: Recibe ---> "adsjfdsfsfjsdjfhacabcsbajda" || Devuelve ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 } 
   //Escribe tu código aquí
+  var obj = {};
+  for (let i = 0; i < string.length ; i++) {
+    if (!obj[string[i]]) {
+      obj[string[i]] = 0;
+    }
+    obj[string[i]] += 1;
+  }
+  return obj;
 }
 
 
@@ -26,6 +39,16 @@ function capToFront(s) {
   //al principio de la palabra.
   //Ejemplo: soyHENRY -> HENRYsoy
   //Escribe tu código aquí
+  var capital = [];
+  var lowercase = [];
+  for (let i = 0; i < string.length; i++) {
+    if (string[i].toUpperCase() === string[i]) {
+      capital.push(string[i]);
+    } else {
+      lowercase.push(string[i]);
+    }
+  }
+  return capital.concat(lowercase).join('');
 }
 
 
@@ -35,6 +58,12 @@ function asAmirror(str) {
   //pero con cada una de sus palabras invertidas, como si fuera un espejo.
   //Ej: Recibe ---> "The Henry Challenge is close!" || Devuelve ---> "ehT yrneH egnellahC si !esolc"
   //Escribe tu código aquí
+  var invertida = str.split(" ");
+  var solution = [];
+  for (let i = 0; i < invertida.length; i++) {
+solution.push(invertida[i].split("").reverse().join(""));
+  }
+  return solution.join(" ");
 } 
 
 
@@ -50,6 +79,10 @@ function deleteAbc(cadena){
   //Define una función que elimine las letras "a", "b" y "c" de la cadena dada 
   //y devuelva la versión modificada o la misma cadena, en caso de contener dichas letras.
   //Escribe tu código aquí
+  cadena = cadena.replace("a", "");
+  cadena = cadena.replace("b", "");
+  cadena = cadena.replace("c", "");
+  return cadena;
 }
 
 
@@ -57,6 +90,9 @@ function sortArray(arr) {
   //La función recibe una matriz de strings. Ordena la matriz en orden creciente de longitudes de cadena
   //Ej: Recibe ---> ["You", "are", "beautiful", "looking"] || Devuelve ---> [“You", "are", "looking", "beautiful"]
   //Escribe tu código aquí
+  return arr.sort(function (elmemento1, elemento2) {
+    return elmemento1.length - elemento2.length;
+  })
 }
 
 
